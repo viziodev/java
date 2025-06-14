@@ -60,7 +60,7 @@ public  abstract class Compte {
 
     @Override
     public String toString() {
-        return "Compte [id=" + id + ", numero=" + numero + ", dateCreation=" + dateCreation + ", solde=" + solde + "]";
+        return " id=" + id + ", numero=" + numero + ", dateCreation=" + dateCreation + ", solde=" + solde ;
     }
     
 
