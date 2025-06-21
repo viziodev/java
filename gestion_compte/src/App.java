@@ -1,22 +1,32 @@
 import java.util.Scanner;
-
+import core.Container;
+import core.DependanceName;
 import services.CompteService;
 import views.CompteView;
 
 public class App {
        private static Scanner scanner=new Scanner(System.in);
     public static void main(String[] args) throws Exception {
+
+      Container container =new Container();
+      //Dependances
+            CompteView compteView=(CompteView)container.getDependency(DependanceName.CompteView);
+            CompteService service=(CompteService)container.getDependency(DependanceName.CompteService);
+       
          int choix ;
          do {
             choix =menu();
             switch (choix) {
                 case 1:
-                var compte =CompteView.saisie();
-                CompteService.addCompte(compte);
+                var compte =compteView.saisie();
+               service.addCompte(compte);
+           
                 break;
                 case 2:
-                var comptes =CompteService.getComptes();
-                CompteView.affiche(comptes);
+
+                var comptes =service.getComptes();
+              
+                compteView.affiche(comptes);
                 break;
               
             
